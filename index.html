@@ -85,6 +85,68 @@
     .hero-art .float { position: absolute; inset-inline: 24px; bottom: 24px; background: rgba(250,248,244,.96); border-radius: var(--radius); padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.15); z-index: 1; }
     .hero-art .float b { color: var(--forest); }
     @media (min-width: 1024px) { .hero-art { display: block; } }
+    .hero-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-art::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,41,31,.55), rgba(18,41,31,0) 55%); z-index: 0; }
+
+    /* Media gallery */
+    .media-grid { display: grid; gap: 16px; }
+    @media (min-width: 768px) { .media-grid { grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; } .media-grid .video { grid-row: 1 / span 2; } }
+    .media-grid figure { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--sage-light); min-height: 220px; }
+    .media-grid img, .media-grid video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-grid figcaption { position: absolute; inset-inline: 12px; bottom: 12px; background: rgba(250,248,244,.94); padding: 8px 14px; border-radius: 14px; font-size: 14px; font-weight: 600; color: var(--forest); }
+    .photo-row { display: grid; gap: 16px; margin-top: 16px; }
+    @media (min-width: 640px) { .photo-row { grid-template-columns: repeat(3, 1fr); } }
+    .photo-row img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); display: block; }
+    .credit { margin-top: 10px; font-size: 12px; color: rgba(18,41,31,.55); }
+
+    /* Program details */
+    .program details { margin-top: 12px; border-top: 1px solid var(--beige); padding-top: 10px; }
+    .program summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--forest); list-style: none; }
+    .program summary::-webkit-details-marker { display: none; }
+    .program summary::after { content: " +"; }
+    .program details[open] summary::after { content: " −"; }
+    .program details ul { margin-top: 8px; list-style: disc; padding-inline-start: 20px; font-size: 15px; color: rgba(18,41,31,.8); }
+    .program details li + li { margin-top: 4px; }
+    .program details p { font-size: 15px; color: rgba(18,41,31,.8); }
+
+    /* Map + floating WhatsApp */
+    .map { margin-top: 32px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--beige); background: var(--sage-light); }
+    .map iframe { display: block; width: 100%; height: 380px; border: 0; }
+    .map-bar { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 14px 20px; background: #fff; font-size: 15px; }
+    .wa-float { position: fixed; bottom: 20px; left: 20px; z-index: 50; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .wa-float:hover { background: #1ebe5b; }
+
+    /* Imported content */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips li { background: #fff; border: 1px solid var(--beige); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+    .about-grid { display: grid; gap: 32px; align-items: center; }
+    @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1.2fr; } }
+    .about-grid img { width: 100%; border-radius: var(--radius); display: block; object-fit: cover; aspect-ratio: 4/3; }
+    .price { font-size: 30px; font-weight: 700; color: var(--forest); margin-top: 6px; }
+    .price span { font-size: 15px; font-weight: 500; color: rgba(18,41,31,.6); }
+    .card h3.t { color: var(--forest); font-weight: 700; font-size: 19px; }
+    .checks li { margin-top: 6px; padding-inline-start: 22px; position: relative; font-size: 15px; }
+    .checks li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: var(--forest); font-weight: 700; }
+    .facility { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 640px) { .facility { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .facility { grid-template-columns: repeat(4, 1fr); } }
+    .facility a { display: block; border-radius: 16px; overflow: hidden; background: var(--sage-light); aspect-ratio: 1; }
+    .facility img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+    .facility a:hover img { transform: scale(1.05); }
+    .files li { border-top: 1px solid var(--beige); }
+    .files li:first-child { border-top: 0; }
+    .files a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 2px; font-size: 15px; }
+    .files a:hover { color: var(--forest); }
+    .files .ext { flex-shrink: 0; font-size: 12px; font-weight: 700; color: var(--forest); background: var(--sage-light); border-radius: 8px; padding: 2px 8px; direction: ltr; }
+    .yt { position: relative; aspect-ratio: 16/9; border-radius: 18px; overflow: hidden; background: var(--deep); cursor: pointer; border: 0; padding: 0; width: 100%; display: block; }
+    .yt img { width: 100%; height: 100%; object-fit: cover; opacity: .85; display: block; }
+    .yt::after { content: "▶"; position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgba(250,248,244,.92); color: var(--forest); display: grid; place-items: center; font-size: 24px; padding-inline-start: 4px; }
+    .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .yt.on::after { display: none; }
+    table.pk { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; }
+    table.pk th, table.pk td { padding: 14px 16px; text-align: start; border-bottom: 1px solid var(--beige); vertical-align: top; }
+    table.pk th { background: var(--sage-light); color: var(--forest); }
+    .tablewrap { overflow-x: auto; border: 1px solid var(--beige); border-radius: var(--radius); }
 
     .pillar h3 { color: var(--forest); font-size: 17px; font-weight: 700; }
     .service h3 { color: var(--forest); font-size: 21px; font-weight: 700; }
@@ -165,11 +227,12 @@
       <a href="#" class="logo"><span aria-hidden="true">✦</span>هوب هاوس</a>
       <nav class="main" aria-label="القائمة الرئيسية">
         <ul>
+          <li><a href="#about">من نحن</a></li>
           <li><a href="#services">خدماتنا</a></li>
-          <li><a href="#journey">كيف تبدأ</a></li>
           <li><a href="#programs">البرامج العلاجية</a></li>
-          <li><a href="#family">دعم الأسرة</a></li>
-          <li><a href="#faq">الأسئلة الشائعة</a></li>
+          <li><a href="#residential">الإقامة والأسعار</a></li>
+          <li><a href="#resources">مكتبة الموارد</a></li>
+          <li><a href="#videos">لقاءات</a></li>
           <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </nav>
@@ -182,11 +245,12 @@
     </div>
     <nav id="mobile-nav" class="mobile" aria-label="القائمة">
       <ul class="container">
+        <li><a href="#about">من نحن</a></li>
         <li><a href="#services">خدماتنا</a></li>
-        <li><a href="#journey">كيف تبدأ</a></li>
         <li><a href="#programs">البرامج العلاجية</a></li>
-        <li><a href="#family">دعم الأسرة</a></li>
-        <li><a href="#faq">الأسئلة الشائعة</a></li>
+        <li><a href="#residential">الإقامة والأسعار</a></li>
+        <li><a href="#resources">مكتبة الموارد</a></li>
+        <li><a href="#videos">لقاءات</a></li>
         <li><a href="#contact">تواصل معنا</a></li>
       </ul>
     </nav>
@@ -204,8 +268,9 @@
             <a href="#programs" class="btn btn-secondary">تعرّف على برامجنا</a>
           </div>
         </div>
-        <!-- TODO: replace with an approved photo of the center -->
-        <div class="hero-art" aria-hidden="true">
+        <!-- Stock photo (Pexels, free license). Replace with a real photo of the center when available. -->
+        <div class="hero-art">
+          <img src="https://images.pexels.com/photos/7176305/pexels-photo-7176305.jpeg?auto=compress&cs=tinysrgb&w=900" alt="جلسة علاج جماعي يقودها مختص في أجواء هادئة" loading="eager" />
           <div class="float">
             <b>خطوتك الأولى سرية</b>
             <p class="muted" style="margin-top:4px">نستمع إليك ونجيب عن أسئلتك، والقرار دائمًا لك.</p>
@@ -223,6 +288,19 @@
       </ul>
     </div>
 
+    <section id="about" class="container section">
+      <div class="about-grid">
+        <img src="https://psychopolis.yolasite.com/resources/1912097_10152239669455465_732631416_n.jpg" alt="محمد حمزة، مؤسس مركز الإرشاد للحياة" loading="lazy" />
+        <div>
+          <p class="pill">من نحن</p>
+          <h2 style="font-size:clamp(24px,3vw,32px);line-height:1.4">مركز الإرشاد للحياة <span style="color:var(--sage);font-size:.6em;direction:ltr;display:inline-block">Life Counseling Center · Psychopolis</span></h2>
+          <p style="margin-top:14px">أسّس المركز <b>محمد حمزة</b>، المستشار النفسي ومدرّب الحياة، ليكون مكانًا للتعافي يساعد الأفراد والأزواج والأسر على الوصول إلى التوازن والعافية النفسية، برعاية تحترم الإنسان وتلتزم بجودة عالية.</p>
+          <p style="margin-top:10px">يضم فريقنا <b>أطباء نفسيين، وتمريضًا نفسيًا، ومرشدين نفسيين، ومدرّبي حياة</b>. نقدّم الطب النفسي لتقييم الأدوية ومتابعتها، والعلاج النفسي لفهم الذات وبناء استراتيجيات صحية للتكيّف، والتدريب على الحياة لبناء حياة أكثر صحة.</p>
+          <p class="muted" style="margin-top:10px">إذا احتجت إلى تخصص لا نقدّمه، اتصل بنا وسنرشّح لك الجهة المناسبة.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="container section">
       <div class="title">
         <h2>ما نقدّمه</h2>
@@ -232,6 +310,23 @@
         <a href="#programs" class="card service"><h3>علاج الإدمان</h3><p>برامج منظّمة تشمل نموذج ماتريكس ومنع الانتكاس والتأهيل.</p><span class="more">المزيد ←</span></a>
         <a href="#programs" class="card service"><h3>الصحة النفسية</h3><p>دعم وعلاج للقلق والاكتئاب والضغوط وصعوبات تنظيم المشاعر.</p><span class="more">المزيد ←</span></a>
         <a href="#family" class="card service"><h3>دعم الأسرة</h3><p>علاج أسري وتثقيف وإرشاد يساعد الأسرة على الدعم والعناية بنفسها.</p><span class="more">المزيد ←</span></a>
+      </div>
+      <div class="grid g2 g4" style="margin-top:16px">
+        <div class="card"><h3 class="t">الإرشاد الفردي</h3><p class="muted">جلسات خاصة للعمل على ما يشغلك بسرية تامة.</p></div>
+        <div class="card"><h3 class="t">إرشاد الأزواج والأسرة</h3><p class="muted">تحسين التواصل وحل الخلافات وإعادة بناء الثقة.</p></div>
+        <div class="card"><h3 class="t">العلاج النفسي</h3><p class="muted">لفهم الذات وبناء طرق صحية للتكيّف.</p></div>
+        <div class="card"><h3 class="t">تقييم الأدوية ومتابعتها</h3><p class="muted">تقييم ومتابعة دوائية على يد طبيب نفسي.</p></div>
+      </div>
+      <div class="card" style="margin-top:16px;background:var(--beige-light)">
+        <h3 class="t" style="margin-bottom:14px">نساعدك في</h3>
+        <ul class="chips">
+          <li>إدمان المخدرات</li><li>إدمان الكحول</li><li>الإدمان الجنسي</li><li>القمار القهري</li><li>إدمان الطعام والكربوهيدرات</li>
+          <li>الاكتئاب</li><li>القلق ونوبات الهلع</li><li>الضغوط وتقليل التوتر</li><li>مشكلات النوم</li><li>الحزن والفقد</li>
+          <li>الغضب والعدوانية</li><li>السلبية والخوف</li><li>السلوك الوسواسي القهري</li><li>ضعف تقدير الذات وصورة الجسد</li>
+          <li>اضطراب فرط الحركة وتشتت الانتباه</li><li>اضطرابات الشخصية</li><li>الاكتئاب بعد الانفصال</li><li>مشكلات العلاقات والأسرة</li>
+          <li>صعوبات التواصل</li><li>التخلي عن جروح الماضي</li><li>صعوبة اتخاذ القرار</li><li>التحوّلات الحياتية</li>
+          <li>التوازن بين العمل والحياة</li><li>الاحتراق النفسي</li><li>الاسترخاء</li>
+        </ul>
       </div>
     </section>
 
@@ -255,17 +350,316 @@
         <p>يحدّد الفريق المختص بعد التقييم الأساليب المناسبة لك، وغالبًا ما تُجمع في خطة واحدة. تختلف النتائج من شخص لآخر.</p>
       </div>
       <div class="grid g2 g3l">
-        <div class="card program"><small>Matrix Model</small><h3>نموذج ماتريكس</h3><p class="muted">برنامج علاجي منظّم للإدمان يجمع بين عدة أساليب علاجية في خطة واضحة المراحل.</p></div>
-        <div class="card program"><small>Cognitive Behavioral Therapy</small><h3>العلاج المعرفي السلوكي</h3><p class="muted">يساعد على فهم العلاقة بين الأفكار والمشاعر والسلوك، وبناء طرق أكثر صحة للتعامل.</p></div>
-        <div class="card program"><small>Motivational Interviewing</small><h3>المقابلة التحفيزية</h3><p class="muted">أسلوب حواري يساعد على استكشاف التردّد تجاه التغيير وتقوية الدوافع الذاتية.</p></div>
-        <div class="card program"><small>Dialectical Behavior Therapy</small><h3>العلاج السلوكي الجدلي</h3><p class="muted">يركّز على مهارات تنظيم المشاعر، وتحمّل الضغوط، والعلاقات، واليقظة الذهنية.</p></div>
-        <div class="card program"><small>Individual · Group · Family Therapy</small><h3>العلاج الفردي والجماعي والأسري</h3><p class="muted">جلسات خاصة، ومجموعات يقودها مختص، وجلسات تجمع الأسرة لتحسين التواصل ودعم التعافي.</p></div>
-        <div class="card program"><small>Psychoeducation</small><h3>التثقيف النفسي</h3><p class="muted">معلومات واضحة وموثوقة عن الإدمان والصحة النفسية للمريض والأسرة.</p></div>
-        <div class="card program"><small>Relapse Prevention</small><h3>منع الانتكاس</h3><p class="muted">التعرّف على المحفّزات وعلامات الإنذار، وبناء خطة شخصية للتعامل معها.</p></div>
-        <div class="card program"><small>Rehabilitation</small><h3>التأهيل</h3><p class="muted">دعم العودة التدريجية إلى الحياة اليومية والعمل والعلاقات.</p></div>
-        <div class="card program"><small>Aftercare</small><h3>الرعاية اللاحقة</h3><p class="muted">جلسات متابعة ومجموعات دعم بعد انتهاء البرنامج، مع إمكانية العودة للتواصل في أي وقت.</p></div>
+        <div class="card program"><small>Matrix Model</small><h3>نموذج ماتريكس</h3><p class="muted">برنامج علاجي منظّم للإدمان يجمع بين عدة أساليب علاجية في خطة واضحة المراحل.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <p style="margin-top:8px">طُوّر في الثمانينيات في معهد ماتريكس بالولايات المتحدة كبرنامج خارجي مكثّف، ويُستخدم اليوم مع أنواع مختلفة من الإدمان.</p>
+            <ul>
+              <li>مدته المعتادة 16 أسبوعًا، بحضور منتظم عدة أيام في الأسبوع.</li>
+              <li>يجمع بين العلاج المعرفي السلوكي، ومنع الانتكاس، ومهارات التعافي المبكر، والمقابلة التحفيزية.</li>
+              <li>يشمل مجموعات لمنع الانتكاس، ومجموعات تثقيف للأسرة، وجلسات فردية، ومجموعات دعم.</li>
+              <li>متابعة دورية بالتحاليل لقياس التقدّم ودعم الالتزام.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Cognitive Behavioral Therapy</small><h3>العلاج المعرفي السلوكي</h3><p class="muted">يساعد على فهم العلاقة بين الأفكار والمشاعر والسلوك، وبناء طرق أكثر صحة للتعامل.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li>التعرّف على الأفكار التلقائية السلبية التي تسبق الرغبة في التعاطي أو تزيد القلق والاكتئاب.</li>
+              <li>تحليل المواقف عالية الخطورة وتعلّم بدائل عملية للتصرّف فيها.</li>
+              <li>تدريب على مهارات حل المشكلات ورفض العروض والتعامل مع الاشتياق (الكريفينج).</li>
+              <li>واجبات منزلية قصيرة بين الجلسات لتطبيق المهارات في الحياة اليومية.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Motivational Interviewing</small><h3>المقابلة التحفيزية</h3><p class="muted">أسلوب حواري يساعد على استكشاف التردّد تجاه التغيير وتقوية الدوافع الذاتية.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li>حوار متعاطف بلا لوم أو مواجهة، يحترم حق الشخص في اتخاذ قراره.</li>
+              <li>يساعد على رؤية الفجوة بين الوضع الحالي والأهداف والقيم الشخصية.</li>
+              <li>مفيد بشكل خاص في البداية عندما يكون الشخص مترددًا أو غير مقتنع بالعلاج.</li>
+              <li>غالبًا ما يُدمج مع أساليب أخرى لزيادة الالتزام بالخطة العلاجية.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Dialectical Behavior Therapy</small><h3>العلاج السلوكي الجدلي</h3><p class="muted">يركّز على مهارات تنظيم المشاعر، وتحمّل الضغوط، والعلاقات، واليقظة الذهنية.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <p style="margin-top:8px">طوّرته الدكتورة مارشا لاينهان، وتوجد نسخة مكيّفة لعلاج الإدمان. يقوم على أربع مجموعات من المهارات:</p>
+            <ul>
+              <li><b>اليقظة الذهنية:</b> ملاحظة الأفكار والمشاعر دون الانقياد لها.</li>
+              <li><b>تحمّل الضغوط:</b> تجاوز اللحظات الصعبة دون اللجوء إلى التعاطي أو إيذاء النفس.</li>
+              <li><b>تنظيم المشاعر:</b> فهم المشاعر وتقليل حدّتها.</li>
+              <li><b>فاعلية العلاقات:</b> التواصل الصحي ووضع الحدود وقول «لا».</li>
+            </ul>
+            <p style="margin-top:6px">يُقدَّم عادة عبر جلسات فردية ومجموعات تدريب على المهارات.</p>
+          </details>
+        </div>
+        <div class="card program"><small>Individual · Group · Family Therapy</small><h3>العلاج الفردي والجماعي والأسري</h3><p class="muted">جلسات خاصة، ومجموعات يقودها مختص، وجلسات تجمع الأسرة لتحسين التواصل ودعم التعافي.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li><b>الفردي:</b> مساحة آمنة وخاصة للعمل على الأسباب والأهداف الشخصية.</li>
+              <li><b>الجماعي:</b> مشاركة التجارب مع آخرين يمرّون بظروف مشابهة، ما يقلّل الشعور بالوحدة والوصمة.</li>
+              <li><b>الأسري:</b> تحسين التواصل داخل الأسرة، وفهم دور كل فرد في دعم التعافي.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Psychoeducation</small><h3>التثقيف النفسي</h3><p class="muted">معلومات واضحة وموثوقة عن الإدمان والصحة النفسية للمريض والأسرة.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li>فهم الإدمان كاضطراب مزمن يمكن علاجه، وليس ضعفًا في الشخصية.</li>
+              <li>كيف يؤثّر التعاطي على الدماغ والمزاج والنوم والعلاقات.</li>
+              <li>علامات الإنذار المبكر، وكيفية التصرف الصحيح كأسرة.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Relapse Prevention</small><h3>منع الانتكاس</h3><p class="muted">التعرّف على المحفّزات وعلامات الإنذار، وبناء خطة شخصية للتعامل معها.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <p style="margin-top:8px">الانتكاس لا يبدأ لحظة التعاطي، بل يمرّ غالبًا بمراحل يمكن ملاحظتها مبكرًا:</p>
+            <ul>
+              <li><b>الانتكاس العاطفي:</b> إهمال النفس والنوم، وكتمان المشاعر.</li>
+              <li><b>الانتكاس الذهني:</b> صراع داخلي وتفكير في التعاطي.</li>
+              <li><b>الانتكاس الفعلي:</b> العودة إلى التعاطي.</li>
+            </ul>
+            <p style="margin-top:6px">نبني معك خطة مكتوبة تحدّد المحفّزات، ومهارات المواجهة، وأشخاص الدعم الذين يمكنك التواصل معهم.</p>
+          </details>
+        </div>
+        <div class="card program"><small>Rehabilitation</small><h3>التأهيل</h3><p class="muted">دعم العودة التدريجية إلى الحياة اليومية والعمل والعلاقات.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li>بناء روتين يومي صحي يشمل النوم والنشاط البدني والهوايات.</li>
+              <li>التخطيط للعودة إلى الدراسة أو العمل خطوة بخطوة.</li>
+              <li>إصلاح العلاقات وبناء شبكة دعم اجتماعية بعيدة عن بيئة التعاطي.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="card program"><small>Aftercare</small><h3>الرعاية اللاحقة</h3><p class="muted">جلسات متابعة ومجموعات دعم بعد انتهاء البرنامج، مع إمكانية العودة للتواصل في أي وقت.</p>
+          <details><summary>اقرأ المزيد</summary>
+            <ul>
+              <li>متابعة أقل كثافة بعد البرنامج الأساسي للحفاظ على ما تحقّق.</li>
+              <li>جلسات حضورية أو عبر الهاتف، ومجموعات دعم منتظمة.</li>
+              <li>تدخّل سريع عند ظهور علامات الانتكاس، مع ربطك بمصادر دعم أخرى عند الحاجة.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <p class="credit">المعلومات للتوعية العامة ومبنية على مصادر علمية منشورة، ولا تُغني عن التقييم المهني. يحدّد الفريق المختص البرنامج المناسب لكل حالة.</p>
+    </section>
+
+    <section id="gallery" class="container section">
+      <div class="title">
+        <h2>بيئة هادئة تساعد على التعافي</h2>
+        <p>مساحة آمنة للعلاج الفردي والجماعي، والهدوء، وبداية جديدة.</p>
+      </div>
+      <!-- Stock media: video from Mixkit (free license), photos from Pexels (free license).
+           Replace with real photos/videos of the center when available. -->
+      <div class="media-grid">
+        <figure class="video">
+          <video autoplay muted loop playsinline preload="metadata" poster="https://images.pexels.com/photos/3337154/pexels-photo-3337154.jpeg?auto=compress&cs=tinysrgb&w=1200" aria-label="مشهد طبيعي هادئ لغابة في ضباب الصباح">
+            <source src="https://assets.mixkit.co/videos/50867/50867-720.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/50867/50867-360.mp4" type="video/mp4" />
+          </video>
+          <figcaption>كل يوم خطوة جديدة</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=800" alt="جلسة علاج فردي بين معالج ومريض" loading="lazy" />
+          <figcaption>العلاج الفردي</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/7579174/pexels-photo-7579174.jpeg?auto=compress&cs=tinysrgb&w=800" alt="مجموعة دعم يقودها مختص" loading="lazy" />
+          <figcaption>مجموعات الدعم</figcaption>
+        </figure>
+      </div>
+      <div class="photo-row">
+        <img src="https://images.pexels.com/photos/4098368/pexels-photo-4098368.jpeg?auto=compress&cs=tinysrgb&w=700" alt="جلسة إرشاد في غرفة هادئة ومشرقة" loading="lazy" />
+        <img src="https://images.pexels.com/photos/4084699/pexels-photo-4084699.jpeg?auto=compress&cs=tinysrgb&w=700" alt="ممر بين الأشجار مع شروق الشمس" loading="lazy" />
+        <video autoplay muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);display:block" aria-label="شروق الشمس على الشاطئ">
+          <source src="https://assets.mixkit.co/videos/51492/51492-720.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/51492/51492-360.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="credit">صور توضيحية من Pexels وفيديوهات من Mixkit (مجانية الاستخدام).</p>
+    </section>
+
+    <section id="residential" class="section band">
+      <div class="container">
+        <div class="title">
+          <h2>الإقامة العلاجية والأسعار</h2>
+          <p>برنامج إقامة لعلاج الإدمان بأسعار شهرية حسب نوع الغرفة، وكل الأسعار شاملة.</p>
+        </div>
+        <div class="grid g3">
+          <div class="card"><h3 class="t">غرفة رباعية</h3><p class="price">$1,500 <span>/ شهريًا</span></p></div>
+          <div class="card"><h3 class="t">غرفة ثنائية</h3><p class="price">$2,500 <span>/ شهريًا</span></p></div>
+          <div class="card"><h3 class="t">غرفة فردية</h3><p class="price">$4,000 <span>/ شهريًا</span></p></div>
+        </div>
+        <div class="grid g2" style="margin-top:16px">
+          <div class="card">
+            <h3 class="t">السعر يشمل</h3>
+            <ul class="checks"><li>الإشراف الطبي</li><li>الإقامة والوجبات والمشروبات</li><li>الجلسات العلاجية الفردية</li><li>الجلسات الجماعية</li><li>المواصلات</li></ul>
+          </div>
+          <div class="card">
+            <h3 class="t">تجهيزات الغرف</h3>
+            <ul class="checks"><li>تكييف في جميع الغرف</li><li>ثلاجة</li><li>مكتب</li><li>شاشة</li><li>كل ما يلزم لإقامة بمستوى فندقي</li></ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3 class="t">دار التعافي في دهب <span style="color:var(--sage);font-size:13px;direction:ltr;display:inline-block">Dahab Recovery House</span></h3>
+          <p class="muted" style="margin-top:6px">بيت تعافٍ انتقالي (Halfway House) في دهب، يساعد على الانتقال التدريجي من العلاج إلى الحياة اليومية في بيئة هادئة وداعمة. تكلفة الإقامة العلاجية الداخلية في نويبع أو دار التعافي في دهب <b>50 دولارًا في اليوم</b>.</p>
+        </div>
+        <h3 class="t" style="margin:32px 0 14px">صور من المركز</h3>
+        <div class="facility">
+          <a href="https://psychopolis.yolasite.com/resources/13307474_10154039188605465_4507027196310186886_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13307474_10154039188605465_4507027196310186886_n.jpg" alt="صورة من المركز (1)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13312641_10154039177820465_1717436092184255903_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13312641_10154039177820465_1717436092184255903_n.jpg" alt="صورة من المركز (2)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13312695_10154039178070465_2901675948948553530_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13312695_10154039178070465_2901675948948553530_n.jpg" alt="صورة من المركز (3)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13315295_10154039187930465_1528262818650718814_n%20%281%29.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13315295_10154039187930465_1528262818650718814_n%20%281%29.jpg" alt="صورة من المركز (4)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13315557_10154039179535465_4731712679695296131_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13315557_10154039179535465_4731712679695296131_n.jpg" alt="صورة من المركز (5)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13321955_10154039179190465_6769080911911931312_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13321955_10154039179190465_6769080911911931312_n.jpg" alt="صورة من المركز (6)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13322136_10154039179070465_7287838111027474803_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13322136_10154039179070465_7287838111027474803_n.jpg" alt="صورة من المركز (7)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13325739_10154039179350465_5095859715253132178_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13325739_10154039179350465_5095859715253132178_n.jpg" alt="صورة من المركز (8)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13330889_10154039180010465_471094488259443657_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13330889_10154039180010465_471094488259443657_n.jpg" alt="صورة من المركز (9)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13330907_10154039176360465_8326984286916672168_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13330907_10154039176360465_8326984286916672168_n.jpg" alt="صورة من المركز (10)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13330911_10154039178345465_16404336137649944_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13330911_10154039178345465_16404336137649944_n.jpg" alt="صورة من المركز (11)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13331168_10154039179760465_3737042948041675668_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13331168_10154039179760465_3737042948041675668_n.jpg" alt="صورة من المركز (12)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13332761_10154039176005465_3171123237915979786_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13332761_10154039176005465_3171123237915979786_n.jpg" alt="صورة من المركز (13)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13335917_10154039178940465_2721620565485581419_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13335917_10154039178940465_2721620565485581419_n.jpg" alt="صورة من المركز (14)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13335946_10154039188250465_5559262902510002179_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13335946_10154039188250465_5559262902510002179_n.jpg" alt="صورة من المركز (15)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13335966_10154039175150465_3022865152879010997_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13335966_10154039175150465_3022865152879010997_n.jpg" alt="صورة من المركز (16)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13344766_10154039176650465_1941937130697481328_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13344766_10154039176650465_1941937130697481328_n.jpg" alt="صورة من المركز (17)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/13346404_10154039187365465_7950458246854722130_n.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/13346404_10154039187365465_7950458246854722130_n.jpg" alt="صورة من المركز (18)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/22.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/22.jpg" alt="صورة من المركز (19)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/23.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/23.jpg" alt="صورة من المركز (20)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/dahab-2012-0921.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/dahab-2012-0921.jpg" alt="صورة من المركز (21)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/IMG_2821.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/IMG_2821.jpg" alt="صورة من المركز (22)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/serenity_prayer.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/serenity_prayer.jpg" alt="صورة من المركز (23)" loading="lazy" /></a>
+          <a href="https://psychopolis.yolasite.com/resources/Untitled-1.jpg.opt378x276o0%2C0s378x276.jpg" target="_blank" rel="noopener"><img src="https://psychopolis.yolasite.com/resources/Untitled-1.jpg.opt378x276o0%2C0s378x276.jpg" alt="صورة من المركز (24)" loading="lazy" /></a>
+        </div>
+        <p class="credit">الأسعار بالدولار الأمريكي وقابلة للتغيير. تواصل معنا لمعرفة الأسعار الحالية.</p>
       </div>
     </section>
+
+    <section id="packages" class="container section">
+      <div class="title">
+        <h2>باقات التدريب والعلاج</h2>
+        <p>باقات شهرية مع محمد حمزة، بالتزام مبدئي لمدة ثلاثة أشهر وخصم عند الدفع المقدّم.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="pk">
+          <thead><tr><th>الباقة</th><th>السعر الشهري</th><th>تناسب / تشمل</th><th>خصم الدفع المقدّم</th></tr></thead>
+          <tbody>
+            <tr><td><b>الباقة الأساسية</b><br><small dir="ltr">Minimal</small></td><td><b>$300</b></td><td>لمن لديه ميزانية محدودة ودافع ذاتي قوي.</td><td>5%</td></tr>
+            <tr><td><b>الأساسية بلس</b><br><small dir="ltr">Minimal Plus</small></td><td><b>$435</b></td><td>جلسات أكثر، ومكالمات هاتفية، واختبارات نفسية (سيكومترية).</td><td>5%</td></tr>
+            <tr><td><b>المسار السريع</b><br><small dir="ltr">Fast Track</small></td><td><b>$600</b></td><td>8 جلسات شهريًا، ومتابعات، وتحاليل معملية.</td><td>8%</td></tr>
+            <tr><td><b>المسار السريع بلس</b><br><small dir="ltr">Fast Track Plus</small></td><td><b>$700</b></td><td>تحاليل مخدرات، وساعات علاج إضافية، ودعم غير محدود بالبريد الإلكتروني.</td><td>10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card">
+          <h3 class="t">شروط الدفع</h3>
+          <ul class="checks"><li>الأسعار بالدولار الأمريكي.</li><li>الدفع قبل بدء الجلسات.</li><li>طرق الدفع: نقدًا، أو شيك، أو تحويل بنكي، أو ويسترن يونيون.</li></ul>
+        </div>
+        <div class="card">
+          <h3 class="t">ملفات الباقات</h3>
+          <ul class="files">
+            <li><a href="https://psychopolis.yolasite.com/resources/package.pdf" target="_blank" rel="noopener" download><span>تفاصيل الباقات</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%B9%D9%84%D8%A7%D8%AC%D9%8A-1.pdf" target="_blank" rel="noopener" download><span>البرنامج العلاجي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/12%20core%20functions.doc" target="_blank" rel="noopener" download><span>المهام الأساسية الاثنتا عشرة</span><span class="ext">DOC</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/follow%20up%20contract%20arabic.doc" target="_blank" rel="noopener" download><span>عقد المتابعة – عربي</span><span class="ext">DOC</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/follow%20up%20contract%20english.doc" target="_blank" rel="noopener" download><span>عقد المتابعة – إنجليزي</span><span class="ext">DOC</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section band">
+      <div class="container">
+        <div class="title">
+          <h2>مكتبة الموارد</h2>
+          <p>أوراق عمل ومواد قراءة يمكنك تحميلها واستخدامها مع معالجك.</p>
+        </div>
+        <div class="grid g2 g3l">
+          <div class="card">
+            <h3 class="t">أوراق عمل العلاج المعرفي السلوكي</h3>
+            <ul class="files" style="margin-top:8px">
+            <li><a href="https://psychopolis.yolasite.com/resources/ABC.pdf" target="_blank" rel="noopener" download><span>نموذج ABC للأفكار والمشاعر</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/ActivityDiary.pdf" target="_blank" rel="noopener" download><span>مفكرة الأنشطة اليومية</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/ACTworksheet.pdf" target="_blank" rel="noopener" download><span>ورقة عمل العلاج بالقبول والالتزام (ACT)</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/basicformulation2.pdf" target="_blank" rel="noopener" download><span>الصياغة المعرفية الأساسية للحالة</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/book.pdf" target="_blank" rel="noopener" download><span>كتيّب العلاج المعرفي السلوكي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/CBT-worksheet.pdf" target="_blank" rel="noopener" download><span>ورقة عمل العلاج المعرفي السلوكي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/CHS_SAST-R.pdf" target="_blank" rel="noopener" download><span>اختبار فحص الإدمان الجنسي (SAST-R)</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/Mindfulness.pdf" target="_blank" rel="noopener" download><span>اليقظة الذهنية</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/OCDThoughtRecordSheet.pdf" target="_blank" rel="noopener" download><span>سجل أفكار الوسواس القهري</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/OCritualsDiary.pdf" target="_blank" rel="noopener" download><span>مفكرة الطقوس القهرية</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/PositivePersonalQualities.pdf" target="_blank" rel="noopener" download><span>الصفات الشخصية الإيجابية</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/PositivePersonalQualitiesDiary.pdf" target="_blank" rel="noopener" download><span>مفكرة الصفات الإيجابية</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/ProblemSolvingWorksheet.pdf" target="_blank" rel="noopener" download><span>ورقة عمل حل المشكلات</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/PTSDThoughtRecordSheet.pdf" target="_blank" rel="noopener" download><span>سجل أفكار اضطراب ما بعد الصدمة</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/SelfCoachingForm.pdf" target="_blank" rel="noopener" download><span>نموذج التدريب الذاتي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/SessionNotes.pdf" target="_blank" rel="noopener" download><span>ملاحظات الجلسة</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/Stress.pdf" target="_blank" rel="noopener" download><span>التعامل مع الضغوط</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/SummaryHomeworkSheet.pdf" target="_blank" rel="noopener" download><span>ملخص الواجب المنزلي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/ThoughtRecordSheet.pdf" target="_blank" rel="noopener" download><span>سجل الأفكار</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/%D8%A7%D9%84%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D8%A8%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%89.doc" target="_blank" rel="noopener" download><span>التقييم بالعربي</span><span class="ext">DOC</span></a></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="t">مواد للقراءة</h3>
+            <ul class="files" style="margin-top:8px">
+            <li><a href="https://psychopolis.yolasite.com/resources/defance.ppt" target="_blank" rel="noopener" download><span>الحيل الدفاعية</span><span class="ext">PPT</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/TheGamesPeoplePlay.pdf" target="_blank" rel="noopener" download><span>الألعاب التي يلعبها الناس (Games People Play)</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/thinking%20error.ppt" target="_blank" rel="noopener" download><span>أخطاء التفكير</span><span class="ext">PPT</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/TREATMENT%20PLAN%20%20SIMI%20HAMZA.ppt" target="_blank" rel="noopener" download><span>نموذج خطة علاجية</span><span class="ext">PPT</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/101%20%D9%86%D9%81%D8%B3.ppt" target="_blank" rel="noopener" download><span>101 نفس</span><span class="ext">PPT</span></a></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="t">موضوعات متعددة</h3>
+            <ul class="files" style="margin-top:8px">
+            <li><a href="https://psychopolis.yolasite.com/resources/%D8%A7%D9%84%D8%A7%D8%AF%D9%85%D8%A7%D9%86%D8%A7%D8%AA.pdf" target="_blank" rel="noopener" download><span>الإدمانات</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%B9%D9%84%D8%A7%D8%AC%D9%8A.pdf" target="_blank" rel="noopener" download><span>برنامج علاجي</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/%D8%A7%D9%84%D8%A7%D8%AF%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D8%AF%D9%8A%D9%86%D9%8A.pdf" target="_blank" rel="noopener" download><span>الإدمان الديني</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/ARTICLE_SexualAddictionAndCompulsion_PCarnes.pdf" target="_blank" rel="noopener" download><span>الإدمان الجنسي والقهر – باتريك كارنز</span><span class="ext">PDF</span></a></li>
+            <li><a href="https://psychopolis.yolasite.com/resources/TWELVE%20CORE%20FUNCTIONS%20OF%20THE.doc" target="_blank" rel="noopener" download><span>المهام الأساسية الاثنتا عشرة للمرشد</span><span class="ext">DOC</span></a></li>
+            </ul>
+            <h3 class="t" style="margin-top:24px">شعر للتعافي</h3>
+            <p class="muted" style="margin-top:6px">مختارات من القصائد عن الصمود والأمل ومواجهة الحزن، منها «Still I Rise» و«Hope is the thing with feathers» و«Talking to Grief».</p>
+            <a class="more" href="https://psychopolis.yolasite.com/poem-healing.php" target="_blank" rel="noopener">اقرأ المختارات ←</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="container section">
+      <div class="title">
+        <h2>لقاءات تلفزيونية</h2>
+        <p>لقاءات ومشاركات إعلامية عن الإدمان والصحة النفسية والتعافي.</p>
+      </div>
+      <div class="grid g2 g3l">
+          <button type="button" class="yt" data-id="xNLYfeErx-I" aria-label="تشغيل الفيديو 1"><img src="https://i.ytimg.com/vi/xNLYfeErx-I/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="h8C2hGARNY4" aria-label="تشغيل الفيديو 2"><img src="https://i.ytimg.com/vi/h8C2hGARNY4/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="GCiUqHryuxM" aria-label="تشغيل الفيديو 3"><img src="https://i.ytimg.com/vi/GCiUqHryuxM/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="OoHWDwzUo4A" aria-label="تشغيل الفيديو 4"><img src="https://i.ytimg.com/vi/OoHWDwzUo4A/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="LQbasRgxfpw" aria-label="تشغيل الفيديو 5"><img src="https://i.ytimg.com/vi/LQbasRgxfpw/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="9s5Y9LLtI-U" aria-label="تشغيل الفيديو 6"><img src="https://i.ytimg.com/vi/9s5Y9LLtI-U/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="o39uJECpP-I" aria-label="تشغيل الفيديو 7"><img src="https://i.ytimg.com/vi/o39uJECpP-I/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="oUfLtO5Iz6g" aria-label="تشغيل الفيديو 8"><img src="https://i.ytimg.com/vi/oUfLtO5Iz6g/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="57A8gqQHDYc" aria-label="تشغيل الفيديو 9"><img src="https://i.ytimg.com/vi/57A8gqQHDYc/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="foGwFxMM-IQ" aria-label="تشغيل الفيديو 10"><img src="https://i.ytimg.com/vi/foGwFxMM-IQ/hqdefault.jpg" alt="" loading="lazy" /></button>
+      </div>
+      <div class="title" style="margin-top:64px">
+        <h2>التأمل والاسترخاء</h2>
+        <p>فيديوهات إرشادية للتأمل واليقظة الذهنية تساعد على تهدئة العقل وتخفيف التوتر.</p>
+      </div>
+      <div class="grid g2 g3l">
+          <button type="button" class="yt" data-id="bEgLw6bTtxs" aria-label="تشغيل الفيديو 1"><img src="https://i.ytimg.com/vi/bEgLw6bTtxs/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="a8GrUeE0eHs" aria-label="تشغيل الفيديو 2"><img src="https://i.ytimg.com/vi/a8GrUeE0eHs/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="dBEEMCdJC7M" aria-label="تشغيل الفيديو 3"><img src="https://i.ytimg.com/vi/dBEEMCdJC7M/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="uA9WAA67-98" aria-label="تشغيل الفيديو 4"><img src="https://i.ytimg.com/vi/uA9WAA67-98/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="TvsF7i76UXI" aria-label="تشغيل الفيديو 5"><img src="https://i.ytimg.com/vi/TvsF7i76UXI/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="giuktm2mU94" aria-label="تشغيل الفيديو 6"><img src="https://i.ytimg.com/vi/giuktm2mU94/hqdefault.jpg" alt="" loading="lazy" /></button>
+          <button type="button" class="yt" data-id="WYlY0NUdoAw" aria-label="تشغيل الفيديو 7"><img src="https://i.ytimg.com/vi/WYlY0NUdoAw/hqdefault.jpg" alt="" loading="lazy" /></button>
+      </div>
+    </section>
+
 
     <section id="family" class="section band">
       <div class="container">
@@ -366,11 +760,11 @@
           <div class="card">
             <h3 style="color:var(--forest);font-weight:700">تفضّل الاتصال مباشرة؟</h3>
             <ul>
-              <!-- TODO: real contact details -->
-              <li>الهاتف: <a dir="ltr" href="tel:+200000000000">+20 000 000 0000</a></li>
-              <li>واتساب: <a dir="ltr" href="https://wa.me/200000000000" target="_blank" rel="noopener noreferrer">+20 000 000 0000</a></li>
-              <li>البريد: <a href="mailto:info@example.com">info@example.com</a></li>
-              <li>العنوان: يُضاف لاحقًا</li>
+              <li>الهاتف: <a dir="ltr" href="tel:+201021915555">0102 191 5555</a></li>
+              <li>واتساب: <a dir="ltr" href="https://wa.me/201222304404" target="_blank" rel="noopener noreferrer">0122 230 4404</a></li>
+              <li>البريد: <a href="mailto:psychopolis.hamza@gmail.com">psychopolis.hamza@gmail.com</a></li>
+              <li>فيسبوك: <a href="https://www.facebook.com/nafsaney" target="_blank" rel="noopener noreferrer">facebook.com/nafsaney</a></li>
+              <li>العنوان: <a href="https://www.google.com/maps/search/?api=1&query=12%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%87%D9%84%D8%A7%D9%84%D8%8C%20%D8%B1%D9%88%D9%83%D8%B3%D9%8A%D8%8C%20%D9%85%D8%B5%D8%B1%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9" target="_blank" rel="noopener noreferrer">12 شارع الهلال، روكسي، مصر الجديدة، القاهرة</a></li>
               <li>مواعيد العمل: يوميًا من 9 صباحًا حتى 9 مساءً</li>
             </ul>
           </div>
@@ -379,6 +773,13 @@
             <p class="muted" style="margin-top:6px">هذا النموذج ليس للحالات العاجلة. إذا كان هناك خطر فوري، اتصل بالطوارئ على <a href="tel:123" style="font-weight:700;text-decoration:underline">123</a> أو توجّه إلى أقرب مستشفى.</p>
           </div>
         </aside>
+      </div>
+      <div class="map">
+        <iframe title="موقع هوب هاوس على خرائط جوجل" src="https://maps.google.com/maps?q=12%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%87%D9%84%D8%A7%D9%84%D8%8C%20%D8%B1%D9%88%D9%83%D8%B3%D9%8A%D8%8C%20%D9%85%D8%B5%D8%B1%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9&z=16&hl=ar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-bar">
+          <span>📍 12 شارع الهلال، روكسي، مصر الجديدة، القاهرة</span>
+          <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=12%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%87%D9%84%D8%A7%D9%84%D8%8C%20%D8%B1%D9%88%D9%83%D8%B3%D9%8A%D8%8C%20%D9%85%D8%B5%D8%B1%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9" target="_blank" rel="noopener noreferrer">الاتجاهات على خرائط جوجل</a>
+        </div>
       </div>
     </section>
 
@@ -408,6 +809,9 @@
           <li><a href="#programs">البرامج العلاجية</a></li>
           <li><a href="#family">دعم الأسرة</a></li>
           <li><a href="#journey">كيف تبدأ</a></li>
+          <li><a href="#residential">الإقامة والأسعار</a></li>
+          <li><a href="#resources">مكتبة الموارد</a></li>
+          <li><a href="#videos">لقاءات تلفزيونية</a></li>
           <li><a href="#faq">الأسئلة الشائعة</a></li>
           <li><a href="#contact">تواصل معنا</a></li>
         </ul>
@@ -415,20 +819,38 @@
       <div>
         <b>تواصل معنا</b>
         <ul>
-          <li>الهاتف: <a dir="ltr" href="tel:+200000000000">+20 000 000 0000</a></li>
-          <li>البريد: <a href="mailto:info@example.com">info@example.com</a></li>
-          <li>العنوان: يُضاف لاحقًا</li>
+          <li>الهاتف: <a dir="ltr" href="tel:+201021915555">0102 191 5555</a></li>
+          <li>واتساب: <a dir="ltr" href="https://wa.me/201222304404" target="_blank" rel="noopener noreferrer">0122 230 4404</a></li>
+          <li>البريد: <a href="mailto:psychopolis.hamza@gmail.com">psychopolis.hamza@gmail.com</a></li>
+              <li>فيسبوك: <a href="https://www.facebook.com/nafsaney" target="_blank" rel="noopener noreferrer">facebook.com/nafsaney</a></li>
+          <li>العنوان: 12 شارع الهلال، روكسي، مصر الجديدة، القاهرة</li>
         </ul>
       </div>
     </div>
     <div class="copy"><div class="container">© <span id="year"></span> هوب هاوس. جميع الحقوق محفوظة.</div></div>
   </footer>
+  <a class="wa-float" href="https://wa.me/201222304404" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+  </a>
 
   <script>
-    // TODO: the center's WhatsApp number in international format, digits only.
-    var WHATSAPP = "200000000000";
+    // The center's WhatsApp number in international format, digits only.
+    var WHATSAPP = "201222304404";
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Click-to-load YouTube videos (keeps the page fast).
+    document.querySelectorAll(".yt").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.classList.contains("on")) return;
+        var f = document.createElement("iframe");
+        f.src = "https://www.youtube-nocookie.com/embed/" + b.dataset.id + "?autoplay=1&rel=0";
+        f.title = "فيديو";
+        f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        f.allowFullscreen = true;
+        b.classList.add("on"); b.innerHTML = ""; b.appendChild(f);
+      });
+    });
 
     // Mobile menu
     var btn = document.querySelector(".menu-btn");
